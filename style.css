@@ -1,235 +1,122 @@
-/* ============================================
-   RESET AND BASE STYLES
-   ============================================ */
 
-/* This removes default margins and padding from all elements */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Makes width/height include padding and border */
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-}
-
-/* ============================================
-   NAVIGATION BAR (Using Flexbox)
-   ============================================ */
-
+/* NAVBAR */
 .navbar {
     background-color: #2c3e50;
-    padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky; /* Navbar sticks to top when scrolling */
-    top: 0;
-    z-index: 100;
+    padding: 15px 0;
 }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
+.nav_container {
+    max-width: 1100px;
+    margin: auto;
     padding: 0 20px;
-    
-    /* FLEXBOX: Arranges logo and menu horizontally */
     display: flex;
-    justify-content: space-between; /* Pushes logo left, menu right */
-    align-items: center; /* Centers items vertically */
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-    color: white;
-    font-size: 1.5rem;
+    color: #fff;
+    font-size: 22px;
 }
 
 .nav-menu {
-    list-style: none; /* Removes bullet points */
-    
-    /* FLEXBOX: Arranges menu items horizontally */
+    list-style: none;
     display: flex;
-    gap: 2rem; /* Space between menu items */
+    gap: 20px;
 }
 
 .nav-menu a {
-    color: white;
-    text-decoration: none; /* Removes underline */
-    font-size: 1rem;
-    padding: 0.5rem 0;
-    position: relative; /* Needed for the underline effect */
-    transition: color 0.3s ease; /* Smooth color change */
-}
-
-/* HOVER EFFECT 1: Underline and color change on menu items */
-.nav-menu a::after {
-    content: ''; /* Creates an invisible element */
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0; /* Starts with no width */
-    height: 2px;
-    background-color: #3498db;
-    transition: width 0.3s ease; /* Smooth width change */
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
 }
 
 .nav-menu a:hover {
-    color: #3498db; /* Changes text color on hover */
+    text-decoration: underline;
 }
 
-.nav-menu a:hover::after {
-    width: 100%; /* Underline expands to full width */
-}
-
-/* ============================================
-   MAIN CONTAINER
-   ============================================ */
-
+/* MAIN CONTAINER */
 .container {
-    max-width: 1200px;
-    margin: 2rem auto;
+    max-width: 1100px;
+    margin: 40px auto;
     padding: 0 20px;
 }
 
 .page-title {
     text-align: center;
-    color: #2c3e50;
-    margin-bottom: 2rem;
-    font-size: 2rem;
+    margin-bottom: 30px;
+    font-size: 28px;
 }
 
-/* ============================================
-   CARDS GRID (Using CSS Grid)
-   ============================================ */
-
+/* CARDS GRID */
 .cards-grid {
-    /* CSS GRID: Creates a 2-dimensional layout */
     display: grid;
-    
-    /* DESKTOP: 3 columns, each takes equal space (1 fraction) */
     grid-template-columns: repeat(3, 1fr);
-    
-    gap: 2rem; /* Space between cards */
+    gap: 25px;
 }
 
-/* ============================================
-   CARD COMPONENT
-   ============================================ */
-
+/* CARD */
 .card {
-    background-color: white;
-    border-radius: 8px; /* Rounded corners */
-    overflow: hidden; /* Hides overflow from image */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
-    
-    /* Smooth transition for hover effects */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
-/* Card image styling */
+.card:hover {
+    transform: translateY(-5px);
+}
+
 .card img {
-    width: 100%; /* Image fills card width */
-    height: 200px; /* Fixed height */
-    object-fit: cover; /* Crops image to fit nicely */
-    display: block; /* Removes small gap below image */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
-/* Card text content */
+/* CARD CONTENT */
 .card-content {
-    padding: 1.5rem;
+    padding: 15px;
 }
 
 .card-content h3 {
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
 }
 
 .card-content p {
     color: #666;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
-.price {
-    color: #3498db;
-    font-weight: bold;
-    font-size: 1.25rem;
-}
-
-/* HOVER EFFECT 2: Shadow and lift on card hover */
-.card:hover {
-    transform: translateY(-5px); /* Moves card up 5 pixels */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Larger shadow */
-}
-
-/* ============================================
-   FOOTER
-   ============================================ */
-
-.footer {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 3rem;
-}
-
-/* ============================================
-   MEDIA QUERIES (Responsive Design)
-   ============================================ */
-
-/* TABLET: Screen width between 768px and 1024px */
-@media (max-width: 1024px) {
+/* TABLET */
+@media (max-width: 900px) {
     .cards-grid {
-        /* Changes to 2 columns on tablet */
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-    
-    .nav-menu {
-        gap: 1.5rem; /* Reduces gap between menu items */
     }
 }
 
-/* MOBILE: Screen width 768px or smaller */
-@media (max-width: 768px) {
+/* MOBILE */
+@media (max-width: 600px) {
+    .nav_container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .cards-grid {
-        /* Changes to 1 column on mobile - cards stack vertically */
         grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
-    
-    .nav-container {
-        /* Stack logo and menu vertically on small screens */
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .nav-menu {
-        gap: 1rem;
-    }
-    
-    .page-title {
-        font-size: 1.5rem;
-    }
-}
 
-/* EXTRA SMALL MOBILE: Screen width 480px or smaller */
-@media (max-width: 480px) {
-    .nav-menu {
-        /* Stack menu items vertically on very small screens */
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-    }
-    
-    .card-content {
-        padding: 1rem;
-    }
-    
-    .container {
-        padding: 0 10px;
+    .page-title {
+        font-size: 24px;
     }
 }
